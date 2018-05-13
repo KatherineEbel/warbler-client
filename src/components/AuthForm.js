@@ -20,18 +20,24 @@ class AuthForm extends Component {
     e.preventDefault();
     const authType = this.props.signUp ? 'signup' : 'signin';
     this.props.onAuth(authType, this.state)
-      .then(() => console.log('LOGGED IN SUCCESSFULLY!'))
+      .then(() => this.props.history.push('/'))
+      .catch(() => {})
   };
 
   render() {
     const { email, username, password, profileImageUrl } = this.state;
-    const { heading, buttonText, signUp } = this.props;
+    const {
+      heading, buttonText, signUp, errors, history, removeError
+    } = this.props;
+
+    history.listen(() => removeError());
     return (
       <div>
         <div className="row justify-content-md-center">
           <div className="col-md-6">
+            <h2 className="text-center">{ heading }</h2>
+            { errors.message && (<div className="alert alert-danger">{ errors.message }</div>)}
             <form onSubmit={ this.handleSubmit }>
-              <h2 className="text-center">{ heading }</h2>
               <div className="form-group">
                 <label htmlFor="email">Email:</label>
                 <input type="text" name="email" id="email"
