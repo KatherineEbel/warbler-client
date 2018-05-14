@@ -41,8 +41,8 @@ Homepage
 */
 
 .home-hero {
-    width: 100vw;
-    height: 100vh;
+    width: 900px;
+    height: 600px;
     position: absolute;
     top: 0;
     left: 0;
@@ -53,9 +53,38 @@ Homepage
     z-index: -1;
     text-align: center;
     padding: 1rem;
-    background: url(./images/signed-out-home.jpg);
     background-size: cover;
-    background-position: center center;
+    background: url(./images/signed-out-home.jpg) center center;
     color: white;
     text-shadow: 0 0 8px #66757f;
+}
+
+#messages .list-group-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 20px 12px;
+}
+
+#messages:not(.no-hover) .list-group-item:hover {
+    background-color: #e6ecf0;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+.timeline-image {
+    border-radius: 50px;
+    height: 48px;
+    width: 48px;
+    margin: 2px 30px 10px 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover {
+    color: white;
 }
